@@ -1,25 +1,69 @@
 @echo off
+title Portfolio - Menu de Inicializacao
+color 0A
+
+:menu
+cls
 echo ===================================================
-echo            Iniciando o Portfolio Website           
+echo      Gerenciador do Portfolio Albuquerque
 echo ===================================================
-
-echo Verificando dependencias...
-if not exist "node_modules\" (
-    echo.
-    echo A pasta node_modules nao foi encontrada.
-    echo Baixando e instalando dependencias (npm install)...
-    cmd /c npm install
-) else (
-    echo Dependencias ja estao instaladas.
-)
-
 echo.
-echo Iniciando o servidor de desenvolvimento e abrindo o navegador...
-echo Se o navegador nao abrir, acesse: http://localhost:5173
+echo Escolha a acao desejada:
+echo [1] Iniciar Servidor Local (Testar no Navegador)
+echo [2] Atualizar e Publicar no GitHub (Colocar Online)
+echo [3] Instalar Dependencias do Projeto
+echo [4] Sair
 echo.
-start http://localhost:5173
-cmd /c npm run dev
+set /p opcao="Digite a opcao (1, 2, 3 ou 4): "
 
-echo.
-echo O servidor foi encerrado ou ocorreu um erro.
+if "%opcao%"=="1" goto iniciar
+if "%opcao%"=="2" goto publicar
+if "%opcao%"=="3" goto instalar
+if "%opcao%"=="4" goto sair
+
+echo Opcao invalida! Tente novamente.
 pause
+goto menu
+
+:iniciar
+cls
+echo ===================================================
+echo Iniciando o servidor local...
+echo O navegador abrira automaticamente quando estiver pronto.
+echo ===================================================
+call npm run dev -- --open
+pause
+goto menu
+
+:publicar
+cls
+echo ===================================================
+echo Preparando para publicar no GitHub Pages...
+echo Isso pode demorar alguns minutos.
+echo ===================================================
+call npm run deploy
+echo.
+echo ===================================================
+echo Salvando alteracoes recentes no repositorio...
+echo ===================================================
+call git add .
+call git commit -m "update: publicacao via menu automatico"
+call git push origin main
+echo.
+echo Publicacao concluida com sucesso! O site esta online!
+pause
+goto menu
+
+:instalar
+cls
+echo ===================================================
+echo Instalando dependencias do projeto...
+echo ===================================================
+call npm install
+echo.
+echo Dependencias instaladas!
+pause
+goto menu
+
+:sair
+exit
