@@ -53,28 +53,28 @@ const Work = () => {
       category: "TypeScript",
       tools: "TypeScript, React, Node",
       url: "https://github.com/RafaelAlbuquerque44/Bingo-Quermesse",
-      image: "/images/Bingo.png"
+      image: "/Portf-lio-Albuquerque/images/Bingo.png"
     },
     {
       name: "Steam-Hour-Farm",
       category: "TypeScript",
       tools: "TypeScript, Node",
       url: "https://github.com/RafaelAlbuquerque44/Steam-Hour-Farm",
-      image: "/images/Steam Hour Farm.png"
+      image: "/Portf-lio-Albuquerque/images/Steam Hour Farm.png"
     },
     {
       name: "GameHub",
       category: "TypeScript",
       tools: "TypeScript, Fullstack",
       url: "https://gamehub.moncy.dev",
-      image: "/images/GameHub.png"
+      image: "/Portf-lio-Albuquerque/images/GameHub.png"
     },
     {
       name: "fleetmonitor",
       category: "TypeScript",
       tools: "TypeScript, Web App",
       url: "https://github.com/RafaelAlbuquerque44/fleetmonitor",
-      image: "/images/FleetMonitor.png"
+      image: "/Portf-lio-Albuquerque/images/FleetMonitor.png"
     }
   ];
 
@@ -101,7 +101,7 @@ const Work = () => {
                   <p>{project.tools}</p>
                 </div>
                 <a href={project.url} target="_blank" rel="noreferrer" style={{ display: 'block', height: '100%', width: '100%' }}>
-                  <WorkImage image={project.image || "/images/placeholder.webp"} alt={project.name} />
+                  <WorkImage image={project.image || "/Portf-lio-Albuquerque/images/placeholder.webp"} alt={project.name} />
                 </a>
               </div>
             ))}
