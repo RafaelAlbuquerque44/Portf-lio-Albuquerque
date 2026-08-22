@@ -14,9 +14,10 @@ const setCharacter = (
   loader.setDRACOLoader(dracoLoader);
 
   const loadCharacter = () => {
-    return new Promise<GLTF | null>(async (resolve, reject) => {
-      try {
-        const encryptedBlob = await decryptFile(
+    return new Promise<GLTF | null>((resolve, reject) => {
+      (async () => {
+        try {
+          const encryptedBlob = await decryptFile(
           "/Portf-lio-Albuquerque/models/character.enc",
           "Character3D#@"
         );
@@ -34,8 +35,8 @@ const setCharacter = (
             const pantColor = 0x2b2b2b; // Calça um tom ligeiramente mais escuro
             const shoesColor = 0xeeeeee; // Tênis branco/cinza claro
 
-            character.traverse((child: any) => {
-              if (child.isMesh) {
+            character.traverse((child: THREE.Object3D) => {
+              if ((child as THREE.Mesh).isMesh) {
                 const mesh = child as THREE.Mesh;
                 child.castShadow = true;
                 child.receiveShadow = true;
@@ -74,6 +75,7 @@ const setCharacter = (
         reject(err);
         console.error(err);
       }
+      })();
     });
   };
 

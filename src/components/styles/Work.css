@@ -10,7 +10,6 @@
   transition: 0s;
   min-height: 100vh;
   height: max-content;
-  overflow: hidden;
   box-sizing: border-box;
   will-change: transform;
 }
@@ -21,13 +20,26 @@
   height: 100%;
   align-content: stretch;
 }
-.work-flex {
+.work-flex-container {
   width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  height: 100%;
+}
+.work-flex-container::-webkit-scrollbar {
+  display: none;
+}
+.work-flex {
+  width: max-content;
   display: flex;
   height: 100%;
   margin-left: -80px;
   padding-right: 120px;
   position: relative;
+  border-top: 1px solid #363636;
+  border-bottom: 1px solid #363636;
 }
 .work-box {
   padding: 80px;
@@ -43,20 +55,7 @@
 .work-flex .work-box:nth-child(even) {
   flex-direction: column-reverse;
 }
-.work-flex::before,
-.work-flex::after {
-  content: "";
-  width: calc(50000vw);
-  height: 1px;
-  background-color: #363636;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-}
-.work-flex::after {
-  top: 100%;
-}
+/* Lines applied via borders on .work-flex instead of pseudo-elements to avoid infinite scroll area */
 .work-title {
   justify-content: space-between;
   display: flex;
@@ -209,4 +208,33 @@
   .work-flex {
     height: auto;
   }
+}
+
+.work-scrollbar {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 60%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: grab;
+  z-index: 10;
+  transition: width 0.3s ease;
+  touch-action: none;
+}
+.work-scrollbar:active {
+  cursor: grabbing;
+}
+.work-scrollbar:hover {
+  width: 10px;
+}
+.work-scrollbar-thumb {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  background-color: var(--accentColor, #C8BFFF);
+  border-radius: 10px;
+  pointer-events: none;
 }

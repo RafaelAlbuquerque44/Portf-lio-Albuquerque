@@ -35,7 +35,7 @@
 }
 .what-box-in {
   flex-direction: column;
-  height: 500px;
+  height: 550px;
   margin-right: 0;
   margin-left: 200px;
   position: relative;
@@ -54,18 +54,18 @@
 
 .what-noTouch:hover,
 .what-content-active {
-  min-height: 67%;
-  padding: 40px 50px;
+  min-height: 75%;
+  padding: 40px 40px;
 }
 
 .what-noTouch:hover ~ .what-content,
 .what-box-in:hover .what-noTouch:not(:hover),
 .what-content.what-sibling {
-  min-height: 33%;
-  padding: 10px 50px;
+  min-height: 25%;
+  padding: 10px 40px;
 }
 .what-content h3 {
-  font-size: 35px;
+  font-size: 32px;
   letter-spacing: 1px;
   margin: 0;
 }
@@ -185,7 +185,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 450px;
+  width: 100%;
 }
 .what-border2 {
   position: absolute;
@@ -201,7 +201,7 @@
   animation: whatBorders 1.2s 1 forwards;
 }
 .what-border2 svg {
-  height: 500px;
+  height: 100%;
   top: 50%;
   transform: translateY(-50%);
   position: absolute;
@@ -251,7 +251,7 @@
     margin-left: 0%;
   }
   .what-box-in {
-    height: 400px;
+    height: 480px;
   }
   .what-content h3 {
     font-size: 28px;
@@ -265,13 +265,13 @@
   }
   .what-noTouch:hover,
   .what-content-active {
-    padding: 20px 30px;
+    padding: 20px 25px;
   }
 
   .what-noTouch:hover ~ .what-content,
   .what-box-in:hover .what-noTouch:not(:hover),
   .what-content.what-sibling {
-    padding: 10px 30px;
+    padding: 10px 25px;
   }
   .what-tags {
     font-size: 12px;
@@ -292,7 +292,7 @@
     padding-bottom: 50px;
   }
   .what-box-in {
-    height: 500px;
+    height: 550px;
     margin-left: -50px;
   }
   .what-content {
@@ -304,15 +304,15 @@
   }
   .what-noTouch:hover,
   .what-content-active {
-    min-height: 67%;
-    padding: 50px;
+    min-height: 75%;
+    padding: 40px;
   }
 
   .what-noTouch:hover ~ .what-content,
   .what-box-in:hover .what-noTouch:not(:hover),
   .what-content.what-sibling {
-    min-height: 33%;
-    padding: 10px 50px;
+    min-height: 25%;
+    padding: 10px 40px;
   }
 }
 @media only screen and (max-width: 900px) {
@@ -340,7 +340,7 @@
   }
   .what-box-in {
     margin-left: 0px;
-    height: 450px;
+    height: 520px;
   }
   .what-content h5,
   .what-content-flex {
